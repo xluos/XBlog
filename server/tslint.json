@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "tslint-config-alloy"
+  ],
+  "linterOptions": { 
+    "exclude": [ 
+     "*/**/model/**/*.ts" 
+    ] 
+  }
+}

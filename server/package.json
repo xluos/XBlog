@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "XBlog GraphQL Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "graphql",
+    "prisma",
+    "nexus"
+  ],
+  "author": "xluos",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.39",
+    "tslint-config-alloy": "^0.2.1",
+    "tslint-eslint-rules": "^5.4.0"
+  }
+}
