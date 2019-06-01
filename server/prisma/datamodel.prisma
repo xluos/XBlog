@@ -1,0 +1,57 @@
+type User {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  email: String! @unique
+  password: String!
+  articles: [Article!]!
+}
+
+type Article implements TimeNode {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "ARTICLE_SEQUENCE" initialValue: 100000 allocationSize: 900000)
+  type: ArticleTypeEnum @default(value: ORIGINAL)
+  profile: String
+  title: String!
+  content: String!
+  contentRaw: String!
+  tags: Json
+  classify: Classify!
+}
+
+enum ArticleTypeEnum {
+  ORIGINAL
+  REPRODUCE
+  PRODUCTION
+  NOTE_TAKING
+}
+
+type Classify implements TimeNode {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "CLASSIFY_SEQUENCE" initialValue: 1 allocationSize: 900000)
+  name: String!
+  parent: Int @default(value: 0)
+  parentList: String @default(value: "0")
+  linkCount: Int @default(value: 0)
+}
+
+type Tags {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  linkCount: Int @default(value: 0)
+}
+
+type Discuss {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  articleId: Int!
+  contentRaw: String!
+  content: String!
+  userName: String
+  userProfile: String
+  userEmail: String!
+  # 评论回复 
+  parentId: String
+}
