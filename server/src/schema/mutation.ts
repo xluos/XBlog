@@ -25,7 +25,7 @@ export const Mutation = prismaObjectType({
         if (args.password === user.password) {
           return {
             token: sign({
-              userId: args.id,
+              userId: user.id,
             }, APP_SECRET)
           }
         } else {
